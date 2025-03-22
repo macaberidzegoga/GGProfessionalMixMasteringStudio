@@ -1,18 +1,67 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: #fff;
-    text-align: center;
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import "./MusicStudio.css";
+
+export default function MusicStudio() {
+  return (
+    <div className="container">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="hero"
+      >
+        <h1 className="title">Welcome to SoundWave Studio</h1>
+        <p className="subtitle">
+          Professional recording, mixing, and mastering services for artists and producers.
+        </p>
+        <Button className="cta-button">Book a Session</Button>
+      </motion.div>
+
+      <div className="services-grid">
+        {services.map((service, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.2, duration: 0.6 }}
+            className="service-card"
+          >
+            <h2 className="service-title">{service.title}</h2>
+            <p className="service-description">{service.description}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="about-section">
+        <h2 className="about-title">About Us</h2>
+        <p className="about-text">
+          At SoundWave Studio, we provide top-tier music production services. Our expert engineers and
+          state-of-the-art equipment ensure the highest quality sound for artists of all genres.
+        </p>
+      </div>
+
+      <div className="gallery">
+        <h2 className="gallery-title">Studio Gallery</h2>
+        <div className="gallery-grid">
+          <img src="studio1.jpg" alt="Studio View" className="gallery-item" />
+          <img src="studio2.jpg" alt="Mixing Desk" className="gallery-item" />
+          <img src="studio3.jpg" alt="Recording Booth" className="gallery-item" />
+        </div>
+      </div>
+
+      <div className="contact-section">
+        <h2 className="contact-title">Get in Touch</h2>
+        <p className="contact-text">Have questions? Want to book a session? Contact us today!</p>
+        <Button className="contact-button">Contact Us</Button>
+      </div>
+    </div>
+  );
 }
-header {
-    background: #333;
-    padding: 20px;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
+
+const services = [
+  { title: "Recording", description: "High-quality recording with professional equipment." },
+  { title: "Mixing & Mastering", description: "Polish your tracks with expert engineering." },
+  { title: "Music Production", description: "Custom beats and instrumentals tailored to your style." },
+];
