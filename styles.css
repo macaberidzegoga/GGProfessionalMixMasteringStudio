@@ -1,61 +1,95 @@
-/* General Styles */
+/* Global Styles */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #111;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    line-height: 1.6;
     text-align: center;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white; /* Ensuring text is readable over the background */
 }
 
-/* Background Image */
+/* Overlay effect for readability */
 body::before {
-    content: '';
-    position: fixed;
+    content: "";
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('background.jpg') no-repeat center center/cover;
-    filter: brightness(40%);
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
     z-index: -1;
 }
 
-/* Header */
-h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-/* Buttons */
-.button {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #e63946;
+header {
+    background: rgba(34, 34, 34, 0.8); /* Semi-transparent background */
     color: #fff;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background: rgba(68, 68, 68, 0.8);
+    margin: 0;
+    padding: 10px 0;
+}
+
+nav ul li a {
+    color: white;
     text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    transition: 0.3s;
+    padding: 8px 15px;
 }
 
-.button:hover {
-    background: #ff4d5a;
+section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.6); /* Adding transparency to improve readability */
+    border-radius: 10px;
 }
 
-/* Footer */
+ul {
+    text-align: left;
+    padding-left: 20px;
+}
+
+blockquote {
+    font-style: italic;
+    color: #ddd;
+}
+
 footer {
-    position: absolute;
-    bottom: 10px;
-    font-size: 0.9rem;
-    opacity: 0.7;
+    background: rgba(34, 34, 34, 0.8);
+    color: #fff;
+    padding: 10px;
+    margin-top: 20px;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        padding: 5px 0;
+    }
+
+    section {
+        padding: 10px;
+    }
+}
